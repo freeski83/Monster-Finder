@@ -14,11 +14,7 @@ const App = () => {
 
   return (
     <div>
-      <CardList>
-        {monsters.map((monster) => (
-          <h1 key={monster.id}>{monster.name}</h1>
-        ))}
-      </CardList>
+      <CardList monsters={monsters} />
     </div>
   );
 };
