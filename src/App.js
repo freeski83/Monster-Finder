@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import CardList from "./components/card-list-component/card-list.component";
 import axios from "axios";
 import "./App.css";
 
@@ -13,9 +14,11 @@ const App = () => {
 
   return (
     <div>
-      {monsters.map((monster) => (
-        <h1 key={monster.id}>{monster.name}</h1>
-      ))}
+      <CardList>
+        {monsters.map((monster) => (
+          <h1 key={monster.id}>{monster.name}</h1>
+        ))}
+      </CardList>
     </div>
   );
 };
