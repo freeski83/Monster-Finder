@@ -6,10 +6,15 @@ import SearchBox from "./components/searchbox-component/search-box.component";
 
 const App = () => {
   const [monsters, setMonsters] = useState([]);
+
   const [searchTerm, setSearchTerm] = useState("");
+
   const filteredMonsters = monsters.filter((monster) =>
     monster.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  const handleChange = (e) => setSearchTerm(e.target.value);
+
   useEffect(() => {
     axios
       .get("https://jsonplaceholder.typicode.com/users")
@@ -17,11 +22,9 @@ const App = () => {
   }, []);
 
   return (
-    <div>
-      <SearchBox
-        placeholder="search monsters"
-        handleChange={(e) => setSearchTerm(e.target.value)}
-      />
+    <div className="App">
+      <h1>Monster Finder</h1>
+      <SearchBox placeholder="search monsters" handleChange={handleChange} />
       <CardList monsters={filteredMonsters} />
     </div>
   );
