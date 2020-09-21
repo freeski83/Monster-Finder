@@ -1,15 +1,13 @@
 import React from "react";
 import "./card.styles.css";
 
-const Card = (props) => {
+const Card = ({ planet }) => {
   return (
     <div className="card-container">
-      <img
-        alt="monster"
-        src={`https://robohash.org/${props.monster.id}?set=set2&size=180x180`}
-      />
-      <h2>{props.monster.name}</h2>
-      <p>{props.monster.email}</p>
+      <h1>Name: {planet.name}</h1>
+      <h3>Diameter: {planet.diameter} Km</h3>
+      <h3>Population: {planet.population}</h3>
+      <h3>Terrain: {planet.terrain}</h3>
     </div>
   );
 };
