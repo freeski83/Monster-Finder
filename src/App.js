@@ -3,6 +3,7 @@ import CardList from "./components/card-list-component/card-list.component";
 import axios from "axios";
 import "./App.css";
 import SearchBox from "./components/searchbox-component/search-box.component";
+import StarfieldAnimation from "react-starfield-animation";
 
 const App = () => {
   const [planets, setPlanets] = useState([]);
@@ -23,7 +24,14 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>Star Wars Planet Guide</h1>
+      <StarfieldAnimation
+        style={{
+          position: "absolute",
+          width: "100%",
+          height: "100%",
+        }}
+      />
+      <h1 className="title">Star Wars Planet Guide</h1>
       <SearchBox placeholder="search planets" handleChange={handleChange} />
 
       <CardList planets={filteredPlanets} />
